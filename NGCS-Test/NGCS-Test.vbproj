@@ -73,6 +73,21 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\DVD.vb" />
+    <Compile Include="API\FirewallPolicy.vb" />
+    <Compile Include="API\Images.vb" />
+    <Compile Include="API\LoadBalancers.vb" />
+    <Compile Include="API\Logs.vb" />
+    <Compile Include="API\MonitorCenter.vb" />
+    <Compile Include="API\MonitoringPolicy.vb" />
+    <Compile Include="API\PrivateNetwork.vb" />
+    <Compile Include="API\PublicIP.vb" />
+    <Compile Include="API\Roles.vb" />
+    <Compile Include="API\ServerAppliance.vb" />
+    <Compile Include="API\SharedStorage.vb" />
+    <Compile Include="API\Usage.vb" />
+    <Compile Include="API\Users.vb" />
+    <Compile Include="Entities\Server.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +110,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="API\Servers.vb" />
     <Compile Include="ngcs.vb" />
   </ItemGroup>
   <ItemGroup>
