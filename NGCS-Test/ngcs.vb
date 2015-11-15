@@ -61,14 +61,46 @@ End Class
 
 
 Public Class hardwareEntity
-    Private _hdds As List(Of Object)
-    Public Property hdds As Object
+    Private _hdds As List(Of Harddrives)
+    Public Property hdds As List(Of harddrives)
         Get
             Return _hdds
         End Get
-        Set(value As Object)
-            '_hdds.Add(value)
+        Set(value As List(Of harddrives))
+            _hdds = value
         End Set
     End Property
 End Class
 
+Public Class harddrives
+    Private _id As String
+    Private _size As String
+    Private _main As Boolean
+
+    Public Property id As String
+        Get
+            Return _id
+        End Get
+        Set(value As String)
+            _id = value
+        End Set
+    End Property
+
+    Public Property size As String
+        Get
+            Return _size
+        End Get
+        Set(value As String)
+            _size = value
+        End Set
+    End Property
+
+    Public Property is_main As String
+        Get
+            Return _main
+        End Get
+        Set(value As String)
+            _main = CBool(value)
+        End Set
+    End Property
+End Class

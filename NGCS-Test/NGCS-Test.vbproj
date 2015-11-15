@@ -88,6 +88,7 @@
     <Compile Include="API\Usage.vb" />
     <Compile Include="API\Users.vb" />
     <Compile Include="Entities\Server.vb" />
+    <Compile Include="Entities\serverStatusEntity.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
