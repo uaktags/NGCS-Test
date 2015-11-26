@@ -23,32 +23,20 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim ColumnHeader1 As System.Windows.Forms.ColumnHeader
-        Dim ListViewGroup6 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Infrastructure", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup7 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Network", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup8 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Security", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup9 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Management", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup10 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Other", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewItem7 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Servers")
-        Dim ListViewItem8 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Images")
-        Dim ListViewItem9 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Shared Storage")
-        Dim ListViewItem10 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Firewall Policies")
-        Dim ListViewItem11 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Load Balancers")
-        Dim ListViewItem12 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Public IP")
+        Dim ListViewGroup1 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Infrastructure", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup2 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Network", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup3 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Security", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup4 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Management", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup5 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Other", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Servers")
+        Dim ListViewItem2 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Images")
+        Dim ListViewItem3 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Shared Storage")
+        Dim ListViewItem4 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Firewall Policies")
+        Dim ListViewItem5 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Load Balancers")
+        Dim ListViewItem6 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Public IP")
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.serverPanel = New System.Windows.Forms.Panel()
-        Me.serverLabel = New System.Windows.Forms.Label()
-        Me.PublicIPPanel = New System.Windows.Forms.Panel()
-        Me.PublicIPLabel = New System.Windows.Forms.Label()
-        Me.LoadBalancerPanel = New System.Windows.Forms.Panel()
-        Me.LoadBalancerLabel = New System.Windows.Forms.Label()
-        Me.FirewallPanel = New System.Windows.Forms.Panel()
-        Me.FirewallLabel = New System.Windows.Forms.Label()
-        Me.SharedStoragePanel = New System.Windows.Forms.Panel()
-        Me.SharedStorageLabel = New System.Windows.Forms.Label()
-        Me.imagesPanel = New System.Windows.Forms.Panel()
-        Me.imagesLabel = New System.Windows.Forms.Label()
-        Me.serversView = New System.Windows.Forms.ListView()
         Me.specsPanels = New System.Windows.Forms.Panel()
         Me.harddrivelabel = New System.Windows.Forms.Label()
         Me.harddriveList = New System.Windows.Forms.ListBox()
@@ -60,18 +48,30 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.serverNameLabel = New System.Windows.Forms.Label()
         Me.label1 = New System.Windows.Forms.Label()
+        Me.serversView = New System.Windows.Forms.ListView()
+        Me.serverLabel = New System.Windows.Forms.Label()
+        Me.imagesPanel = New System.Windows.Forms.Panel()
+        Me.imagesLabel = New System.Windows.Forms.Label()
+        Me.SharedStoragePanel = New System.Windows.Forms.Panel()
+        Me.SharedStorageLabel = New System.Windows.Forms.Label()
+        Me.FirewallPanel = New System.Windows.Forms.Panel()
+        Me.FirewallLabel = New System.Windows.Forms.Label()
+        Me.LoadBalancerPanel = New System.Windows.Forms.Panel()
+        Me.LoadBalancerLabel = New System.Windows.Forms.Label()
+        Me.PublicIPPanel = New System.Windows.Forms.Panel()
+        Me.PublicIPLabel = New System.Windows.Forms.Label()
         ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         Me.serverPanel.SuspendLayout()
-        Me.PublicIPPanel.SuspendLayout()
-        Me.LoadBalancerPanel.SuspendLayout()
-        Me.FirewallPanel.SuspendLayout()
-        Me.SharedStoragePanel.SuspendLayout()
-        Me.imagesPanel.SuspendLayout()
         Me.specsPanels.SuspendLayout()
+        Me.imagesPanel.SuspendLayout()
+        Me.SharedStoragePanel.SuspendLayout()
+        Me.FirewallPanel.SuspendLayout()
+        Me.LoadBalancerPanel.SuspendLayout()
+        Me.PublicIPPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'ColumnHeader1
@@ -105,26 +105,26 @@ Partial Class Form1
         '
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {ColumnHeader1})
         Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
-        ListViewGroup6.Header = "Infrastructure"
-        ListViewGroup6.Name = "InfrastructureGrp"
-        ListViewGroup7.Header = "Network"
-        ListViewGroup7.Name = "NetworkGrp"
-        ListViewGroup8.Header = "Security"
-        ListViewGroup8.Name = "SecurityGrp"
-        ListViewGroup9.Header = "Management"
-        ListViewGroup9.Name = "ManagementGrp"
-        ListViewGroup10.Header = "Other"
-        ListViewGroup10.Name = "OtherGrp"
-        Me.ListView1.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup6, ListViewGroup7, ListViewGroup8, ListViewGroup9, ListViewGroup10})
+        ListViewGroup1.Header = "Infrastructure"
+        ListViewGroup1.Name = "InfrastructureGrp"
+        ListViewGroup2.Header = "Network"
+        ListViewGroup2.Name = "NetworkGrp"
+        ListViewGroup3.Header = "Security"
+        ListViewGroup3.Name = "SecurityGrp"
+        ListViewGroup4.Header = "Management"
+        ListViewGroup4.Name = "ManagementGrp"
+        ListViewGroup5.Header = "Other"
+        ListViewGroup5.Name = "OtherGrp"
+        Me.ListView1.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1, ListViewGroup2, ListViewGroup3, ListViewGroup4, ListViewGroup5})
         Me.ListView1.HideSelection = False
         Me.ListView1.ImeMode = System.Windows.Forms.ImeMode.KatakanaHalf
-        ListViewItem7.Group = ListViewGroup6
-        ListViewItem8.Group = ListViewGroup6
-        ListViewItem9.Group = ListViewGroup6
-        ListViewItem10.Group = ListViewGroup7
-        ListViewItem11.Group = ListViewGroup7
-        ListViewItem12.Group = ListViewGroup7
-        Me.ListView1.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem7, ListViewItem8, ListViewItem9, ListViewItem10, ListViewItem11, ListViewItem12})
+        ListViewItem1.Group = ListViewGroup1
+        ListViewItem2.Group = ListViewGroup1
+        ListViewItem3.Group = ListViewGroup1
+        ListViewItem4.Group = ListViewGroup2
+        ListViewItem5.Group = ListViewGroup2
+        ListViewItem6.Group = ListViewGroup2
+        Me.ListView1.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1, ListViewItem2, ListViewItem3, ListViewItem4, ListViewItem5, ListViewItem6})
         Me.ListView1.Location = New System.Drawing.Point(0, 0)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
@@ -143,117 +143,6 @@ Partial Class Form1
         Me.serverPanel.Name = "serverPanel"
         Me.serverPanel.Size = New System.Drawing.Size(454, 601)
         Me.serverPanel.TabIndex = 0
-        '
-        'serverLabel
-        '
-        Me.serverLabel.AutoSize = True
-        Me.serverLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.serverLabel.Location = New System.Drawing.Point(14, 19)
-        Me.serverLabel.Name = "serverLabel"
-        Me.serverLabel.Size = New System.Drawing.Size(80, 25)
-        Me.serverLabel.TabIndex = 0
-        Me.serverLabel.Text = "Servers"
-        '
-        'PublicIPPanel
-        '
-        Me.PublicIPPanel.Controls.Add(Me.PublicIPLabel)
-        Me.PublicIPPanel.Location = New System.Drawing.Point(101, 96)
-        Me.PublicIPPanel.Name = "PublicIPPanel"
-        Me.PublicIPPanel.Size = New System.Drawing.Size(383, 409)
-        Me.PublicIPPanel.TabIndex = 1
-        '
-        'PublicIPLabel
-        '
-        Me.PublicIPLabel.AutoSize = True
-        Me.PublicIPLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PublicIPLabel.Location = New System.Drawing.Point(14, 19)
-        Me.PublicIPLabel.Name = "PublicIPLabel"
-        Me.PublicIPLabel.Size = New System.Drawing.Size(88, 25)
-        Me.PublicIPLabel.TabIndex = 0
-        Me.PublicIPLabel.Text = "Public IP"
-        '
-        'LoadBalancerPanel
-        '
-        Me.LoadBalancerPanel.Controls.Add(Me.LoadBalancerLabel)
-        Me.LoadBalancerPanel.Location = New System.Drawing.Point(109, 104)
-        Me.LoadBalancerPanel.Name = "LoadBalancerPanel"
-        Me.LoadBalancerPanel.Size = New System.Drawing.Size(383, 409)
-        Me.LoadBalancerPanel.TabIndex = 2
-        '
-        'LoadBalancerLabel
-        '
-        Me.LoadBalancerLabel.AutoSize = True
-        Me.LoadBalancerLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LoadBalancerLabel.Location = New System.Drawing.Point(14, 19)
-        Me.LoadBalancerLabel.Name = "LoadBalancerLabel"
-        Me.LoadBalancerLabel.Size = New System.Drawing.Size(148, 25)
-        Me.LoadBalancerLabel.TabIndex = 0
-        Me.LoadBalancerLabel.Text = "Load Balancers"
-        '
-        'FirewallPanel
-        '
-        Me.FirewallPanel.Controls.Add(Me.FirewallLabel)
-        Me.FirewallPanel.Location = New System.Drawing.Point(117, 112)
-        Me.FirewallPanel.Name = "FirewallPanel"
-        Me.FirewallPanel.Size = New System.Drawing.Size(383, 409)
-        Me.FirewallPanel.TabIndex = 3
-        '
-        'FirewallLabel
-        '
-        Me.FirewallLabel.AutoSize = True
-        Me.FirewallLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FirewallLabel.Location = New System.Drawing.Point(14, 19)
-        Me.FirewallLabel.Name = "FirewallLabel"
-        Me.FirewallLabel.Size = New System.Drawing.Size(150, 25)
-        Me.FirewallLabel.TabIndex = 0
-        Me.FirewallLabel.Text = "Firewall Policies"
-        '
-        'SharedStoragePanel
-        '
-        Me.SharedStoragePanel.Controls.Add(Me.SharedStorageLabel)
-        Me.SharedStoragePanel.Location = New System.Drawing.Point(125, 120)
-        Me.SharedStoragePanel.Name = "SharedStoragePanel"
-        Me.SharedStoragePanel.Size = New System.Drawing.Size(383, 409)
-        Me.SharedStoragePanel.TabIndex = 4
-        '
-        'SharedStorageLabel
-        '
-        Me.SharedStorageLabel.AutoSize = True
-        Me.SharedStorageLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SharedStorageLabel.Location = New System.Drawing.Point(14, 19)
-        Me.SharedStorageLabel.Name = "SharedStorageLabel"
-        Me.SharedStorageLabel.Size = New System.Drawing.Size(160, 25)
-        Me.SharedStorageLabel.TabIndex = 0
-        Me.SharedStorageLabel.Text = "Shared Storages"
-        '
-        'imagesPanel
-        '
-        Me.imagesPanel.Controls.Add(Me.imagesLabel)
-        Me.imagesPanel.Location = New System.Drawing.Point(133, 128)
-        Me.imagesPanel.Name = "imagesPanel"
-        Me.imagesPanel.Size = New System.Drawing.Size(383, 409)
-        Me.imagesPanel.TabIndex = 5
-        '
-        'imagesLabel
-        '
-        Me.imagesLabel.AutoSize = True
-        Me.imagesLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.imagesLabel.Location = New System.Drawing.Point(14, 19)
-        Me.imagesLabel.Name = "imagesLabel"
-        Me.imagesLabel.Size = New System.Drawing.Size(76, 25)
-        Me.imagesLabel.TabIndex = 0
-        Me.imagesLabel.Text = "Images"
-        '
-        'serversView
-        '
-        Me.serversView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.serversView.Location = New System.Drawing.Point(19, 78)
-        Me.serversView.Name = "serversView"
-        Me.serversView.Size = New System.Drawing.Size(411, 202)
-        Me.serversView.TabIndex = 1
-        Me.serversView.UseCompatibleStateImageBehavior = False
         '
         'specsPanels
         '
@@ -287,6 +176,8 @@ Partial Class Form1
         '
         'harddriveList
         '
+        Me.harddriveList.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.harddriveList.FormattingEnabled = True
         Me.harddriveList.ItemHeight = 16
         Me.harddriveList.Location = New System.Drawing.Point(288, 54)
@@ -366,6 +257,117 @@ Partial Class Form1
         Me.label1.TabIndex = 12
         Me.label1.Text = "Name:"
         '
+        'serversView
+        '
+        Me.serversView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.serversView.Location = New System.Drawing.Point(19, 78)
+        Me.serversView.Name = "serversView"
+        Me.serversView.Size = New System.Drawing.Size(411, 202)
+        Me.serversView.TabIndex = 1
+        Me.serversView.UseCompatibleStateImageBehavior = False
+        '
+        'serverLabel
+        '
+        Me.serverLabel.AutoSize = True
+        Me.serverLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.serverLabel.Location = New System.Drawing.Point(14, 19)
+        Me.serverLabel.Name = "serverLabel"
+        Me.serverLabel.Size = New System.Drawing.Size(80, 25)
+        Me.serverLabel.TabIndex = 0
+        Me.serverLabel.Text = "Servers"
+        '
+        'imagesPanel
+        '
+        Me.imagesPanel.Controls.Add(Me.imagesLabel)
+        Me.imagesPanel.Location = New System.Drawing.Point(133, 128)
+        Me.imagesPanel.Name = "imagesPanel"
+        Me.imagesPanel.Size = New System.Drawing.Size(383, 409)
+        Me.imagesPanel.TabIndex = 5
+        '
+        'imagesLabel
+        '
+        Me.imagesLabel.AutoSize = True
+        Me.imagesLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.imagesLabel.Location = New System.Drawing.Point(14, 19)
+        Me.imagesLabel.Name = "imagesLabel"
+        Me.imagesLabel.Size = New System.Drawing.Size(76, 25)
+        Me.imagesLabel.TabIndex = 0
+        Me.imagesLabel.Text = "Images"
+        '
+        'SharedStoragePanel
+        '
+        Me.SharedStoragePanel.Controls.Add(Me.SharedStorageLabel)
+        Me.SharedStoragePanel.Location = New System.Drawing.Point(125, 120)
+        Me.SharedStoragePanel.Name = "SharedStoragePanel"
+        Me.SharedStoragePanel.Size = New System.Drawing.Size(383, 409)
+        Me.SharedStoragePanel.TabIndex = 4
+        '
+        'SharedStorageLabel
+        '
+        Me.SharedStorageLabel.AutoSize = True
+        Me.SharedStorageLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SharedStorageLabel.Location = New System.Drawing.Point(14, 19)
+        Me.SharedStorageLabel.Name = "SharedStorageLabel"
+        Me.SharedStorageLabel.Size = New System.Drawing.Size(160, 25)
+        Me.SharedStorageLabel.TabIndex = 0
+        Me.SharedStorageLabel.Text = "Shared Storages"
+        '
+        'FirewallPanel
+        '
+        Me.FirewallPanel.Controls.Add(Me.FirewallLabel)
+        Me.FirewallPanel.Location = New System.Drawing.Point(117, 112)
+        Me.FirewallPanel.Name = "FirewallPanel"
+        Me.FirewallPanel.Size = New System.Drawing.Size(383, 409)
+        Me.FirewallPanel.TabIndex = 3
+        '
+        'FirewallLabel
+        '
+        Me.FirewallLabel.AutoSize = True
+        Me.FirewallLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FirewallLabel.Location = New System.Drawing.Point(14, 19)
+        Me.FirewallLabel.Name = "FirewallLabel"
+        Me.FirewallLabel.Size = New System.Drawing.Size(150, 25)
+        Me.FirewallLabel.TabIndex = 0
+        Me.FirewallLabel.Text = "Firewall Policies"
+        '
+        'LoadBalancerPanel
+        '
+        Me.LoadBalancerPanel.Controls.Add(Me.LoadBalancerLabel)
+        Me.LoadBalancerPanel.Location = New System.Drawing.Point(109, 104)
+        Me.LoadBalancerPanel.Name = "LoadBalancerPanel"
+        Me.LoadBalancerPanel.Size = New System.Drawing.Size(383, 409)
+        Me.LoadBalancerPanel.TabIndex = 2
+        '
+        'LoadBalancerLabel
+        '
+        Me.LoadBalancerLabel.AutoSize = True
+        Me.LoadBalancerLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LoadBalancerLabel.Location = New System.Drawing.Point(14, 19)
+        Me.LoadBalancerLabel.Name = "LoadBalancerLabel"
+        Me.LoadBalancerLabel.Size = New System.Drawing.Size(148, 25)
+        Me.LoadBalancerLabel.TabIndex = 0
+        Me.LoadBalancerLabel.Text = "Load Balancers"
+        '
+        'PublicIPPanel
+        '
+        Me.PublicIPPanel.Controls.Add(Me.PublicIPLabel)
+        Me.PublicIPPanel.Location = New System.Drawing.Point(101, 96)
+        Me.PublicIPPanel.Name = "PublicIPPanel"
+        Me.PublicIPPanel.Size = New System.Drawing.Size(383, 409)
+        Me.PublicIPPanel.TabIndex = 1
+        '
+        'PublicIPLabel
+        '
+        Me.PublicIPLabel.AutoSize = True
+        Me.PublicIPLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PublicIPLabel.Location = New System.Drawing.Point(14, 19)
+        Me.PublicIPLabel.Name = "PublicIPLabel"
+        Me.PublicIPLabel.Size = New System.Drawing.Size(88, 25)
+        Me.PublicIPLabel.TabIndex = 0
+        Me.PublicIPLabel.Text = "Public IP"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -380,18 +382,18 @@ Partial Class Form1
         Me.SplitContainer1.ResumeLayout(False)
         Me.serverPanel.ResumeLayout(False)
         Me.serverPanel.PerformLayout()
-        Me.PublicIPPanel.ResumeLayout(False)
-        Me.PublicIPPanel.PerformLayout()
-        Me.LoadBalancerPanel.ResumeLayout(False)
-        Me.LoadBalancerPanel.PerformLayout()
-        Me.FirewallPanel.ResumeLayout(False)
-        Me.FirewallPanel.PerformLayout()
-        Me.SharedStoragePanel.ResumeLayout(False)
-        Me.SharedStoragePanel.PerformLayout()
-        Me.imagesPanel.ResumeLayout(False)
-        Me.imagesPanel.PerformLayout()
         Me.specsPanels.ResumeLayout(False)
         Me.specsPanels.PerformLayout()
+        Me.imagesPanel.ResumeLayout(False)
+        Me.imagesPanel.PerformLayout()
+        Me.SharedStoragePanel.ResumeLayout(False)
+        Me.SharedStoragePanel.PerformLayout()
+        Me.FirewallPanel.ResumeLayout(False)
+        Me.FirewallPanel.PerformLayout()
+        Me.LoadBalancerPanel.ResumeLayout(False)
+        Me.LoadBalancerPanel.PerformLayout()
+        Me.PublicIPPanel.ResumeLayout(False)
+        Me.PublicIPPanel.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

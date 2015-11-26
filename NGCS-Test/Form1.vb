@@ -31,7 +31,7 @@ Public Class Form1
     End Sub
 
     Private Function refreshAPI(ByVal Optional all As String = "")
-        Dim ngcs As New NGCS_Test.ngcs(My.Settings.apikey)
+        Dim ngcs As New NGCS_Wrapper.ngcs(My.Settings.apikey)
         If all <> "" Then
             Select Case all
                 Case "servers"
@@ -57,7 +57,7 @@ Public Class Form1
             specsPanels.Visible = True
             Dim srv = serversView.SelectedItems.Item(0).Tag
             serverNameLabel.Text = srv.name
-            serverDesc.Text = srv.description
+            'serverDesc.Text = srv.description
             serverStatus.Text = srv.status.state
             For Each i In srv.hardware.hdds
                 Dim size As String

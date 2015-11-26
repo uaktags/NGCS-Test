@@ -87,8 +87,20 @@
     <Compile Include="API\SharedStorage.vb" />
     <Compile Include="API\Usage.vb" />
     <Compile Include="API\Users.vb" />
-    <Compile Include="Entities\Server.vb" />
+    <Compile Include="Entities\FirewallPolicyEntity.vb" />
+    <Compile Include="Entities\ImageEntity.vb" />
+    <Compile Include="Entities\LoadBalancerEntity.vb" />
+    <Compile Include="Entities\LogEntity.vb" />
+    <Compile Include="Entities\MonitoringCenterEntity.vb" />
+    <Compile Include="Entities\MonitoringPolicyEntity.vb" />
+    <Compile Include="Entities\PrivateNetworkEntity.vb" />
+    <Compile Include="Entities\PublicIPEntity.vb" />
+    <Compile Include="Entities\ServerAppliancesEntity.vb" />
+    <Compile Include="Entities\ServerEntity.vb" />
     <Compile Include="Entities\serverStatusEntity.vb" />
+    <Compile Include="Entities\sharedstorageEntity.vb" />
+    <Compile Include="Entities\UsagesEntity.vb" />
+    <Compile Include="Entities\UsersEntity.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
