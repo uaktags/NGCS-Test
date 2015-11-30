@@ -56,7 +56,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("e1e32b2d4abd65521aec8d06de3c240e")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property apikey() As String
             Get
                 Return CType(Me("apikey"),String)

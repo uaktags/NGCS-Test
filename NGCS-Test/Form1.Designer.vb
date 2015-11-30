@@ -22,22 +22,24 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim ColumnHeader1 As System.Windows.Forms.ColumnHeader
-        Dim ListViewGroup1 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Infrastructure", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup2 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Network", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup3 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Security", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup4 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Management", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup5 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Other", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Servers")
-        Dim ListViewItem2 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Images")
-        Dim ListViewItem3 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Shared Storage")
-        Dim ListViewItem4 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Firewall Policies")
-        Dim ListViewItem5 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Load Balancers")
-        Dim ListViewItem6 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Public IP")
+        Dim ListViewGroup11 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Infrastructure", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup12 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Network", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup13 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Security", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup14 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Management", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup15 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Other", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewItem13 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Servers")
+        Dim ListViewItem14 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Images")
+        Dim ListViewItem15 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Shared Storage")
+        Dim ListViewItem16 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Firewall Policies")
+        Dim ListViewItem17 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Load Balancers")
+        Dim ListViewItem18 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Public IP")
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.serverPanel = New System.Windows.Forms.Panel()
         Me.specsPanels = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.harddrivelabel = New System.Windows.Forms.Label()
         Me.harddriveList = New System.Windows.Forms.ListBox()
         Me.serverIP = New System.Windows.Forms.Label()
@@ -60,6 +62,9 @@ Partial Class Form1
         Me.LoadBalancerLabel = New System.Windows.Forms.Label()
         Me.PublicIPPanel = New System.Windows.Forms.Panel()
         Me.PublicIPLabel = New System.Windows.Forms.Label()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.currentstatus = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.statustimer = New System.Windows.Forms.Timer(Me.components)
         ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -72,6 +77,7 @@ Partial Class Form1
         Me.FirewallPanel.SuspendLayout()
         Me.LoadBalancerPanel.SuspendLayout()
         Me.PublicIPPanel.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ColumnHeader1
@@ -97,34 +103,33 @@ Partial Class Form1
         Me.SplitContainer1.Panel2.Controls.Add(Me.FirewallPanel)
         Me.SplitContainer1.Panel2.Controls.Add(Me.LoadBalancerPanel)
         Me.SplitContainer1.Panel2.Controls.Add(Me.PublicIPPanel)
-        Me.SplitContainer1.Size = New System.Drawing.Size(686, 601)
+        Me.SplitContainer1.Size = New System.Drawing.Size(686, 637)
         Me.SplitContainer1.SplitterDistance = 228
         Me.SplitContainer1.TabIndex = 1
         '
         'ListView1
         '
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {ColumnHeader1})
-        Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
-        ListViewGroup1.Header = "Infrastructure"
-        ListViewGroup1.Name = "InfrastructureGrp"
-        ListViewGroup2.Header = "Network"
-        ListViewGroup2.Name = "NetworkGrp"
-        ListViewGroup3.Header = "Security"
-        ListViewGroup3.Name = "SecurityGrp"
-        ListViewGroup4.Header = "Management"
-        ListViewGroup4.Name = "ManagementGrp"
-        ListViewGroup5.Header = "Other"
-        ListViewGroup5.Name = "OtherGrp"
-        Me.ListView1.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1, ListViewGroup2, ListViewGroup3, ListViewGroup4, ListViewGroup5})
+        ListViewGroup11.Header = "Infrastructure"
+        ListViewGroup11.Name = "InfrastructureGrp"
+        ListViewGroup12.Header = "Network"
+        ListViewGroup12.Name = "NetworkGrp"
+        ListViewGroup13.Header = "Security"
+        ListViewGroup13.Name = "SecurityGrp"
+        ListViewGroup14.Header = "Management"
+        ListViewGroup14.Name = "ManagementGrp"
+        ListViewGroup15.Header = "Other"
+        ListViewGroup15.Name = "OtherGrp"
+        Me.ListView1.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup11, ListViewGroup12, ListViewGroup13, ListViewGroup14, ListViewGroup15})
         Me.ListView1.HideSelection = False
         Me.ListView1.ImeMode = System.Windows.Forms.ImeMode.KatakanaHalf
-        ListViewItem1.Group = ListViewGroup1
-        ListViewItem2.Group = ListViewGroup1
-        ListViewItem3.Group = ListViewGroup1
-        ListViewItem4.Group = ListViewGroup2
-        ListViewItem5.Group = ListViewGroup2
-        ListViewItem6.Group = ListViewGroup2
-        Me.ListView1.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1, ListViewItem2, ListViewItem3, ListViewItem4, ListViewItem5, ListViewItem6})
+        ListViewItem13.Group = ListViewGroup11
+        ListViewItem14.Group = ListViewGroup11
+        ListViewItem15.Group = ListViewGroup11
+        ListViewItem16.Group = ListViewGroup12
+        ListViewItem17.Group = ListViewGroup12
+        ListViewItem18.Group = ListViewGroup12
+        Me.ListView1.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem13, ListViewItem14, ListViewItem15, ListViewItem16, ListViewItem17, ListViewItem18})
         Me.ListView1.Location = New System.Drawing.Point(0, 0)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
@@ -141,7 +146,7 @@ Partial Class Form1
         Me.serverPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.serverPanel.Location = New System.Drawing.Point(0, 0)
         Me.serverPanel.Name = "serverPanel"
-        Me.serverPanel.Size = New System.Drawing.Size(454, 601)
+        Me.serverPanel.Size = New System.Drawing.Size(454, 637)
         Me.serverPanel.TabIndex = 0
         '
         'specsPanels
@@ -149,6 +154,7 @@ Partial Class Form1
         Me.specsPanels.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.specsPanels.Controls.Add(Me.Button1)
         Me.specsPanels.Controls.Add(Me.harddrivelabel)
         Me.specsPanels.Controls.Add(Me.harddriveList)
         Me.specsPanels.Controls.Add(Me.serverIP)
@@ -161,9 +167,18 @@ Partial Class Form1
         Me.specsPanels.Controls.Add(Me.label1)
         Me.specsPanels.Location = New System.Drawing.Point(19, 303)
         Me.specsPanels.Name = "specsPanels"
-        Me.specsPanels.Size = New System.Drawing.Size(411, 286)
+        Me.specsPanels.Size = New System.Drawing.Size(411, 322)
         Me.specsPanels.TabIndex = 12
         Me.specsPanels.Visible = False
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(6, 170)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(136, 29)
+        Me.Button1.TabIndex = 22
+        Me.Button1.Text = "Create an Image"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'harddrivelabel
         '
@@ -264,7 +279,7 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.serversView.Location = New System.Drawing.Point(19, 78)
         Me.serversView.Name = "serversView"
-        Me.serversView.Size = New System.Drawing.Size(411, 202)
+        Me.serversView.Size = New System.Drawing.Size(411, 238)
         Me.serversView.TabIndex = 1
         Me.serversView.UseCompatibleStateImageBehavior = False
         '
@@ -368,11 +383,31 @@ Partial Class Form1
         Me.PublicIPLabel.TabIndex = 0
         Me.PublicIPLabel.Text = "Public IP"
         '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.currentstatus})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 615)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(686, 22)
+        Me.StatusStrip1.TabIndex = 2
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'currentstatus
+        '
+        Me.currentstatus.Name = "currentstatus"
+        Me.currentstatus.Size = New System.Drawing.Size(0, 17)
+        '
+        'statustimer
+        '
+        Me.statustimer.Interval = 5000
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(686, 601)
+        Me.ClientSize = New System.Drawing.Size(686, 637)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "Form1"
         Me.Text = "Form1"
@@ -394,7 +429,10 @@ Partial Class Form1
         Me.LoadBalancerPanel.PerformLayout()
         Me.PublicIPPanel.ResumeLayout(False)
         Me.PublicIPPanel.PerformLayout()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents SplitContainer1 As SplitContainer
@@ -423,4 +461,8 @@ Partial Class Form1
     Friend WithEvents Label3 As Label
     Friend WithEvents serverNameLabel As Label
     Friend WithEvents label1 As Label
+    Friend WithEvents Button1 As Button
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents currentstatus As ToolStripStatusLabel
+    Friend WithEvents statustimer As Timer
 End Class
