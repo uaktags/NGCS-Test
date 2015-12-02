@@ -71,7 +71,7 @@ TryAgain:
             Exit Sub
 cont:
             Dim ngcs As New NGCS_Wrapper.ngcs(api)
-            Dim ping = ngcs._ping_auth()
+            Dim ping = ngcs.ping_auth()
             Dim res = ping.pingit()
             If res = True Then
                 My.Settings.apikey = api

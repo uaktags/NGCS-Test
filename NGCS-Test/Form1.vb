@@ -41,7 +41,7 @@ Public Class Form1
         If all <> "" Then
             Select Case all
                 Case "servers"
-                    Dim servers = _ngcs._servers.getServers()
+                    Dim servers = _ngcs.Servers.getServers()
                     Console.WriteLine(servers)
                     '   serversView.Clear()
                     DataGridView1.Rows.Clear()
@@ -135,12 +135,12 @@ Public Class Form1
     End Sub
 
     Private Sub RestartToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestartToolStripMenuItem.Click
-        _ngcs._servers.restartServer(Button5.Tag.ToString)
+        _ngcs.Servers.restartServer(Button5.Tag.ToString)
     End Sub
 
     Private Sub CreateImageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CreateImageToolStripMenuItem.Click
         Dim srv = Button5.Tag
-        If _ngcs._Image.create(Nothing, srv.id, "FirstImage", "some IMAGE i made", "WEEKLY", 1) = True Then
+        If _ngcs.Image.create(Nothing, srv.id, "FirstImage", "some IMAGE i made", "WEEKLY", 1) = True Then
             changestatus("Image Created")
         Else
             changestatus("Image failed to create")
@@ -148,10 +148,10 @@ Public Class Form1
     End Sub
 
     Private Sub HardwareToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HardwareToolStripMenuItem.Click
-        _ngcs._servers.stopServer(Button5.Tag.ToString)
+        _ngcs.Servers.stopServer(Button5.Tag.ToString)
     End Sub
 
     Private Sub SoftwareToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SoftwareToolStripMenuItem.Click
-        _ngcs._servers.stopServer(Button5.Tag.ToString, False)
+        _ngcs.Servers.stopServer(Button5.Tag.ToString, False)
     End Sub
 End Class

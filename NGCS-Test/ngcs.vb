@@ -13,55 +13,55 @@ Namespace NGCS_Wrapper
         Public Sub New(ByVal apikey As String)
             _api = apikey
         End Sub
-        Public Function _servers() As Object
+        Public Function Servers() As Servers
             Return New Servers(_api)
         End Function
 
-        Public Function _Dvd()
+        Public Function Dvd() As DVD
             Return New DVD(_api)
         End Function
-        Public Function _FirewallPolicy()
+        Public Function FirewallPolicy() As FirewallPolicy
             Return New FirewallPolicy(_api)
         End Function
-        Public Function _Image()
+        Public Function Image() As Images
             Return New Images(_api)
         End Function
-        Public Function _LoadBalancers()
+        Public Function LoadBalancers() As LoadBalancers
             Return New LoadBalancers(_api)
         End Function
-        Public Function _Logs()
+        Public Function Logs() As Logs
             Return New Logs(_api)
         End Function
-        Public Function _MonitorCenter()
+        Public Function MonitorCenter() As MonitorCenter
             Return New MonitorCenter(_api)
         End Function
-        Public Function _MonitoringPolicy()
+        Public Function MonitoringPolicy() As MonitoringPolicy
             Return New MonitoringPolicy(_api)
         End Function
-        Public Function _PrivateNetwork()
+        Public Function PrivateNetwork() As PrivateNetwork
             Return New PrivateNetwork(_api)
         End Function
-        Public Function _PublicIP()
+        Public Function PublicIP() As PublicIP
             Return New PublicIP(_api)
         End Function
-        Public Function _ServerAppliances()
+        Public Function ServerAppliances() As ServerAppliances
             Return New ServerAppliances(_api)
         End Function
-        Public Function _SharedStorages()
+        Public Function SharedStorages() As SharedStorage
             Return New SharedStorage(_api)
         End Function
-        Public Function _Usage()
+        Public Function Usage() As Usage
             Return New Usage(_api)
         End Function
-        Public Function _Users()
+        Public Function Users() As Users
             Return New Users(_api)
         End Function
 
-        Public Function _Roles()
+        Public Function Roles() As Roles
             Return New Roles(_api)
         End Function
 
-        Public Function _ping_auth()
+        Public Function ping_auth() As pingtest
             Return New pingtest(_api)
         End Function
 
@@ -105,21 +105,13 @@ Namespace NGCS_Wrapper
 
                 dataStream.Close()
 
-
-
                 response = request.GetResponse()
 
-                'If response.Headers.Get("StatusCode") = HttpStatusCode.Accepted Then
-
                 statuscode = response.Headers.Get("StatusCode")
-
-                'End If
 
                 dataStream.Close()
 
                 response.Close()
-
-                'statuscode = HttpStatusCode.OK
 
             Catch ex As WebException
                 Return ("Status code: " + Convert.ToString(CType(ex.Response, HttpWebResponse).StatusCode) + vbCrLf + "Message: " + ex.Message + vbCrLf + response.Headers.ToString)
