@@ -7,7 +7,7 @@
             Private _description As String
             Private _creation_date As String
             Private _password As String
-            Private _status As Status
+            Private _status As ServerStatus
             Private _image As serverImage
             Private _dvd As DVD
             Private _snapshot As Snapshots
@@ -41,11 +41,11 @@
                 End Set
             End Property
 
-            Public Property status() As Status
+            Public Property status() As ServerStatus
                 Get
                     Return _status
                 End Get
-                Set(value As Status)
+                Set(value As ServerStatus)
                     _status = value
                 End Set
             End Property
@@ -226,7 +226,7 @@
         Public Class Servers
             Private _ID As String
             Private _name As String
-            Private _status As serverStatusEntity
+            Private _status As ServerStatus
             Private _image As serverImage
             Private _hardware As hardwareEntity
             Private _ips As List(Of serverIP)
@@ -259,11 +259,11 @@
                 End Set
             End Property
 
-            Public Property status() As serverStatusEntity
+            Public Property status() As ServerStatus
                 Get
                     Return _status
                 End Get
-                Set(value As serverStatusEntity)
+                Set(value As ServerStatus)
                     _status = value
                 End Set
             End Property
@@ -274,6 +274,14 @@
                 End Get
                 Set(value As serverImage)
                     _image = value
+                End Set
+            End Property
+            Public Property ips() As List(Of serverIP)
+                Get
+                    Return _ips
+                End Get
+                Set(value As List(Of serverIP))
+                    _ips = value
                 End Set
             End Property
         End Class

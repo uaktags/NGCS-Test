@@ -38,6 +38,13 @@ Partial Class Form1
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.serverPanel = New System.Windows.Forms.Panel()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.colName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colIP = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colOS = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.specsPanels = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.harddrivelabel = New System.Windows.Forms.Label()
@@ -50,7 +57,6 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.serverNameLabel = New System.Windows.Forms.Label()
         Me.label1 = New System.Windows.Forms.Label()
-        Me.serversView = New System.Windows.Forms.ListView()
         Me.serverLabel = New System.Windows.Forms.Label()
         Me.imagesPanel = New System.Windows.Forms.Panel()
         Me.imagesLabel = New System.Windows.Forms.Label()
@@ -65,12 +71,26 @@ Partial Class Form1
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.currentstatus = New System.Windows.Forms.ToolStripStatusLabel()
         Me.statustimer = New System.Windows.Forms.Timer(Me.components)
+        Me.ActionsMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.StartToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StopToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RestartToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CloneToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImagesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CreateImageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReimageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SnapshotsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CreateSnapshotToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteSnapshotToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HardwareToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SoftwareToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         Me.serverPanel.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.specsPanels.SuspendLayout()
         Me.imagesPanel.SuspendLayout()
         Me.SharedStoragePanel.SuspendLayout()
@@ -78,6 +98,7 @@ Partial Class Form1
         Me.LoadBalancerPanel.SuspendLayout()
         Me.PublicIPPanel.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
+        Me.ActionsMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'ColumnHeader1
@@ -103,8 +124,8 @@ Partial Class Form1
         Me.SplitContainer1.Panel2.Controls.Add(Me.FirewallPanel)
         Me.SplitContainer1.Panel2.Controls.Add(Me.LoadBalancerPanel)
         Me.SplitContainer1.Panel2.Controls.Add(Me.PublicIPPanel)
-        Me.SplitContainer1.Size = New System.Drawing.Size(686, 637)
-        Me.SplitContainer1.SplitterDistance = 228
+        Me.SplitContainer1.Size = New System.Drawing.Size(868, 828)
+        Me.SplitContainer1.SplitterDistance = 146
         Me.SplitContainer1.TabIndex = 1
         '
         'ListView1
@@ -133,21 +154,73 @@ Partial Class Form1
         Me.ListView1.Location = New System.Drawing.Point(0, 0)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(228, 601)
+        Me.ListView1.Size = New System.Drawing.Size(168, 601)
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
         '
         'serverPanel
         '
+        Me.serverPanel.Controls.Add(Me.Button5)
+        Me.serverPanel.Controls.Add(Me.Button4)
+        Me.serverPanel.Controls.Add(Me.DataGridView1)
         Me.serverPanel.Controls.Add(Me.specsPanels)
-        Me.serverPanel.Controls.Add(Me.serversView)
         Me.serverPanel.Controls.Add(Me.serverLabel)
         Me.serverPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.serverPanel.Location = New System.Drawing.Point(0, 0)
         Me.serverPanel.Name = "serverPanel"
-        Me.serverPanel.Size = New System.Drawing.Size(454, 637)
+        Me.serverPanel.Size = New System.Drawing.Size(718, 828)
         Me.serverPanel.TabIndex = 0
+        '
+        'Button5
+        '
+        Me.Button5.Enabled = False
+        Me.Button5.Location = New System.Drawing.Point(117, 75)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(92, 39)
+        Me.Button5.TabIndex = 16
+        Me.Button5.Text = "Actions"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(19, 75)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(92, 37)
+        Me.Button4.TabIndex = 15
+        Me.Button4.Text = "Create"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colName, Me.colIP, Me.colOS, Me.colStatus})
+        Me.DataGridView1.Location = New System.Drawing.Point(19, 131)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowTemplate.Height = 24
+        Me.DataGridView1.Size = New System.Drawing.Size(674, 224)
+        Me.DataGridView1.TabIndex = 13
+        '
+        'colName
+        '
+        Me.colName.HeaderText = "Name"
+        Me.colName.Name = "colName"
+        '
+        'colIP
+        '
+        Me.colIP.HeaderText = "IP"
+        Me.colIP.Name = "colIP"
+        '
+        'colOS
+        '
+        Me.colOS.HeaderText = "OS"
+        Me.colOS.Name = "colOS"
+        '
+        'colStatus
+        '
+        Me.colStatus.HeaderText = "Status"
+        Me.colStatus.Name = "colStatus"
+        Me.colStatus.Width = 200
         '
         'specsPanels
         '
@@ -165,15 +238,15 @@ Partial Class Form1
         Me.specsPanels.Controls.Add(Me.Label3)
         Me.specsPanels.Controls.Add(Me.serverNameLabel)
         Me.specsPanels.Controls.Add(Me.label1)
-        Me.specsPanels.Location = New System.Drawing.Point(19, 303)
+        Me.specsPanels.Location = New System.Drawing.Point(19, 370)
         Me.specsPanels.Name = "specsPanels"
-        Me.specsPanels.Size = New System.Drawing.Size(411, 322)
+        Me.specsPanels.Size = New System.Drawing.Size(675, 446)
         Me.specsPanels.TabIndex = 12
         Me.specsPanels.Visible = False
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(6, 170)
+        Me.Button1.Location = New System.Drawing.Point(6, 210)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(136, 29)
         Me.Button1.TabIndex = 22
@@ -183,7 +256,7 @@ Partial Class Form1
         'harddrivelabel
         '
         Me.harddrivelabel.AutoSize = True
-        Me.harddrivelabel.Location = New System.Drawing.Point(285, 34)
+        Me.harddrivelabel.Location = New System.Drawing.Point(275, 34)
         Me.harddrivelabel.Name = "harddrivelabel"
         Me.harddrivelabel.Size = New System.Drawing.Size(81, 17)
         Me.harddrivelabel.TabIndex = 21
@@ -195,9 +268,9 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.harddriveList.FormattingEnabled = True
         Me.harddriveList.ItemHeight = 16
-        Me.harddriveList.Location = New System.Drawing.Point(288, 54)
+        Me.harddriveList.Location = New System.Drawing.Point(278, 54)
         Me.harddriveList.Name = "harddriveList"
-        Me.harddriveList.Size = New System.Drawing.Size(120, 68)
+        Me.harddriveList.Size = New System.Drawing.Size(384, 68)
         Me.harddriveList.TabIndex = 20
         '
         'serverIP
@@ -271,17 +344,6 @@ Partial Class Form1
         Me.label1.Size = New System.Drawing.Size(49, 17)
         Me.label1.TabIndex = 12
         Me.label1.Text = "Name:"
-        '
-        'serversView
-        '
-        Me.serversView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.serversView.Location = New System.Drawing.Point(19, 78)
-        Me.serversView.Name = "serversView"
-        Me.serversView.Size = New System.Drawing.Size(411, 238)
-        Me.serversView.TabIndex = 1
-        Me.serversView.UseCompatibleStateImageBehavior = False
         '
         'serverLabel
         '
@@ -387,9 +449,9 @@ Partial Class Form1
         '
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.currentstatus})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 615)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 806)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(686, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(868, 22)
         Me.StatusStrip1.TabIndex = 2
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -402,11 +464,93 @@ Partial Class Form1
         '
         Me.statustimer.Interval = 5000
         '
+        'ActionsMenuStrip
+        '
+        Me.ActionsMenuStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ActionsMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StartToolStripMenuItem, Me.StopToolStripMenuItem, Me.RestartToolStripMenuItem, Me.CloneToolStripMenuItem, Me.ImagesToolStripMenuItem, Me.ReimageToolStripMenuItem, Me.SnapshotsToolStripMenuItem})
+        Me.ActionsMenuStrip.Name = "ActionsMenuStrip"
+        Me.ActionsMenuStrip.Size = New System.Drawing.Size(182, 214)
+        '
+        'StartToolStripMenuItem
+        '
+        Me.StartToolStripMenuItem.Name = "StartToolStripMenuItem"
+        Me.StartToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.StartToolStripMenuItem.Text = "Start"
+        '
+        'StopToolStripMenuItem
+        '
+        Me.StopToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HardwareToolStripMenuItem, Me.SoftwareToolStripMenuItem})
+        Me.StopToolStripMenuItem.Name = "StopToolStripMenuItem"
+        Me.StopToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.StopToolStripMenuItem.Text = "Stop"
+        '
+        'RestartToolStripMenuItem
+        '
+        Me.RestartToolStripMenuItem.Name = "RestartToolStripMenuItem"
+        Me.RestartToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.RestartToolStripMenuItem.Text = "Restart"
+        '
+        'CloneToolStripMenuItem
+        '
+        Me.CloneToolStripMenuItem.Name = "CloneToolStripMenuItem"
+        Me.CloneToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.CloneToolStripMenuItem.Text = "Clone"
+        '
+        'ImagesToolStripMenuItem
+        '
+        Me.ImagesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CreateImageToolStripMenuItem})
+        Me.ImagesToolStripMenuItem.Name = "ImagesToolStripMenuItem"
+        Me.ImagesToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.ImagesToolStripMenuItem.Text = "Images"
+        '
+        'CreateImageToolStripMenuItem
+        '
+        Me.CreateImageToolStripMenuItem.Name = "CreateImageToolStripMenuItem"
+        Me.CreateImageToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.CreateImageToolStripMenuItem.Text = "Create Image"
+        '
+        'ReimageToolStripMenuItem
+        '
+        Me.ReimageToolStripMenuItem.Name = "ReimageToolStripMenuItem"
+        Me.ReimageToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.ReimageToolStripMenuItem.Text = "Reimage"
+        '
+        'SnapshotsToolStripMenuItem
+        '
+        Me.SnapshotsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CreateSnapshotToolStripMenuItem, Me.DeleteSnapshotToolStripMenuItem})
+        Me.SnapshotsToolStripMenuItem.Name = "SnapshotsToolStripMenuItem"
+        Me.SnapshotsToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.SnapshotsToolStripMenuItem.Text = "Snapshots"
+        '
+        'CreateSnapshotToolStripMenuItem
+        '
+        Me.CreateSnapshotToolStripMenuItem.Name = "CreateSnapshotToolStripMenuItem"
+        Me.CreateSnapshotToolStripMenuItem.Size = New System.Drawing.Size(193, 26)
+        Me.CreateSnapshotToolStripMenuItem.Text = "Create Snapshot"
+        '
+        'DeleteSnapshotToolStripMenuItem
+        '
+        Me.DeleteSnapshotToolStripMenuItem.Name = "DeleteSnapshotToolStripMenuItem"
+        Me.DeleteSnapshotToolStripMenuItem.Size = New System.Drawing.Size(193, 26)
+        Me.DeleteSnapshotToolStripMenuItem.Text = "Delete Snapshot"
+        '
+        'HardwareToolStripMenuItem
+        '
+        Me.HardwareToolStripMenuItem.Name = "HardwareToolStripMenuItem"
+        Me.HardwareToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.HardwareToolStripMenuItem.Text = "Hardware"
+        '
+        'SoftwareToolStripMenuItem
+        '
+        Me.SoftwareToolStripMenuItem.Name = "SoftwareToolStripMenuItem"
+        Me.SoftwareToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.SoftwareToolStripMenuItem.Text = "Software"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(686, 637)
+        Me.ClientSize = New System.Drawing.Size(868, 828)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "Form1"
@@ -417,6 +561,7 @@ Partial Class Form1
         Me.SplitContainer1.ResumeLayout(False)
         Me.serverPanel.ResumeLayout(False)
         Me.serverPanel.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.specsPanels.ResumeLayout(False)
         Me.specsPanels.PerformLayout()
         Me.imagesPanel.ResumeLayout(False)
@@ -431,6 +576,7 @@ Partial Class Form1
         Me.PublicIPPanel.PerformLayout()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
+        Me.ActionsMenuStrip.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -438,7 +584,6 @@ Partial Class Form1
     Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents ListView1 As ListView
     Friend WithEvents serverPanel As Panel
-    Friend WithEvents serversView As ListView
     Friend WithEvents serverLabel As Label
     Friend WithEvents imagesPanel As Panel
     Friend WithEvents imagesLabel As Label
@@ -465,4 +610,24 @@ Partial Class Form1
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents currentstatus As ToolStripStatusLabel
     Friend WithEvents statustimer As Timer
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents colName As DataGridViewTextBoxColumn
+    Friend WithEvents colIP As DataGridViewTextBoxColumn
+    Friend WithEvents colOS As DataGridViewTextBoxColumn
+    Friend WithEvents colStatus As DataGridViewTextBoxColumn
+    Friend WithEvents Button4 As Button
+    Friend WithEvents Button5 As Button
+    Friend WithEvents ActionsMenuStrip As ContextMenuStrip
+    Friend WithEvents StartToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents StopToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RestartToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CloneToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ImagesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CreateImageToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReimageToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SnapshotsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CreateSnapshotToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DeleteSnapshotToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HardwareToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SoftwareToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -145,15 +145,53 @@ Namespace NGCS_Wrapper
                 Return ("Status code: " + Convert.ToString(CType(e.Response, HttpWebResponse).StatusCode) + vbCrLf + "Message: " + e.Message + vbCrLf + request.Headers.ToString)
             End Try
         End Function
-        Public Function _PUT(ByVal _command As String)
-            Using client As New WebClient
-                'Call API
-                Try
+        Public Function _PUT(ByVal _command As String, ByVal data As Specialized.HybridDictionary)
+            Dim responseFromServer As Byte() = Nothing
+            Dim dataStream As Stream = Nothing
+            Dim statuscode As New HttpStatusCode
+            Dim response As WebResponse
+            Try
+                Dim request As WebRequest = WebRequest.Create(url + _command)
 
-                Catch e As WebException
-                    Return ("Status code: " + Convert.ToString(CType(e.Response, HttpWebResponse).StatusCode) + vbCrLf + "Message: " + e.Message + vbCrLf + client.Headers.ToString)
-                End Try
-            End Using
+                request.Timeout = 120000
+                request.Headers.Add("X-TOKEN", _api)
+                request.Method = "PUT"
+
+                Dim content As String = New JavaScriptSerializer().Serialize(data).ToString
+                Dim byteArray As Byte() = System.Text.Encoding.UTF8.GetBytes(content)
+
+                request.ContentType = "application/json"
+
+                request.ContentLength = byteArray.Length
+
+                dataStream = request.GetRequestStream()
+
+                dataStream.Write(byteArray, 0, byteArray.Length)
+
+                dataStream.Close()
+
+
+
+                response = request.GetResponse()
+
+                'If response.Headers.Get("StatusCode") = HttpStatusCode.Accepted Then
+
+                statuscode = response.Headers.Get("StatusCode")
+
+                'End If
+
+                dataStream.Close()
+
+                response.Close()
+
+                'statuscode = HttpStatusCode.OK
+
+            Catch ex As WebException
+                Return ("Status code: " + Convert.ToString(CType(ex.Response, HttpWebResponse).StatusCode) + vbCrLf + "Message: " + ex.Message + vbCrLf + response.Headers.ToString)
+            Catch ex As Exception
+                statuscode = HttpStatusCode.ExpectationFailed
+            End Try
+            Return statuscode
         End Function
 
         Public Function responseOK(ByVal status As HttpStatusCode)

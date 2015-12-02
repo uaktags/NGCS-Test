@@ -34,7 +34,7 @@
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If timeout > 0 Then
-            ProgressBar1.Increment(5 + ProgressBar1.Value)
+            ProgressBar1.Increment(10)
             timeout = timeout - 1
         End If
         Dim api As String
