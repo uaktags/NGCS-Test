@@ -67,8 +67,8 @@ Public Class Form1
 
                         srv.Cells.Item(2).Value = appfunctions.getFriendlyOS(i.image.name)
                         srv.Cells.Item(3).Value = i.status.state
-                        srv.Tag = i
-                            DataGridView1.Rows.Add(srv)
+                        srv.Tag = _ngcs.Servers.getServer(i.id)
+                        DataGridView1.Rows.Add(srv)
                         Next
                         Case 2
 
@@ -80,13 +80,13 @@ Public Class Form1
 
 
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         '    Dim srv = serversView.SelectedItems.Item(0).Tag
         ' '   If _ngcs._Image.create(Nothing, srv.id, "FirstImage", "some IMAGE i made", "WEEKLY", 1) = True Then
         '    changestatus("Image Created")
         '    Else
         '    changestatus("Image failed to create")
-    '    End If
+        '    End If
     End Sub
 
     Private Sub statustimer_Tick(sender As Object, e As EventArgs) Handles statustimer.Tick
@@ -102,10 +102,19 @@ Public Class Form1
 
     Private Sub DataGridView1_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEnter
         specsPanels.Visible = True
-        Dim srv = DataGridView1.CurrentRow.Tag
+        Dim srv As NGCS_Wrapper.Entity.Server = DataGridView1.CurrentRow.Tag
         serverNameLabel.Text = srv.name
-        'serverDesc.Text = srv.description
-        serverStatus.Text = srv.status.state
+        serverDesc.Text = srv.description
+        If srv.status.state = "POWERED_ON" Then
+            StartToolStripMenuItem.Enabled = False
+            serverStatus.Text = "Running"
+        ElseIf srv.status.state = "POWERED_OFF" Then
+            StopToolStripMenuItem.Enabled = False
+            serverStatus.Text = "Off"
+        Else
+            serverStatus.Text = srv.status.state
+        End If
+
         harddriveList.Items.Clear()
         For Each i In srv.hardware.hdds
             Dim size As String
@@ -116,13 +125,16 @@ Public Class Form1
             End If
             harddriveList.Items.Add(size)
         Next
+        serverIPs.Items.Clear()
+
+        For Each ips In srv.ips
+            serverIPs.Items.Add(ips)
+        Next
+        serverIPs.DisplayMember = "ip"
+        serverCores.Text = srv.vcores
+        serverRam.Text = srv.ram
         Button5.Enabled = True
         Button5.Tag = srv.id
-        If srv.status.state = "POWERED_ON" Then
-            StartToolStripMenuItem.Enabled = False
-        ElseIf srv.status.state = "POWERED_OFF" Then
-            StopToolStripMenuItem.Enabled = False
-        End If
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -153,5 +165,9 @@ Public Class Form1
 
     Private Sub SoftwareToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SoftwareToolStripMenuItem.Click
         _ngcs.Servers.stopServer(Button5.Tag.ToString, False)
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        MsgBox("Show a new window for the Server Creation wizard.")
     End Sub
 End Class

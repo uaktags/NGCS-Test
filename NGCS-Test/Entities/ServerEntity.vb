@@ -72,7 +72,35 @@
                     _image = value
                 End Set
             End Property
+            Public Property ips() As List(Of serverIP)
+                Get
+                    Return _ips
+                End Get
+                Set(value As List(Of serverIP))
+                    _ips = value
+                End Set
+            End Property
 
+            Public Property initial_password() As String
+                Get
+                    Return _password
+                End Get
+                Set(value As String)
+                    _password = value
+                End Set
+            End Property
+
+            Public ReadOnly Property ram() As String
+                Get
+                    Return _hardware.ram
+                End Get
+            End Property
+
+            Public ReadOnly Property vcores() As String
+                Get
+                    Return _hardware.vcore
+                End Get
+            End Property
         End Class
 
         Public Class hardwareEntity
@@ -95,6 +123,15 @@
                 End Get
                 Set(value As List(Of harddrives))
                     _hdds = value
+                End Set
+            End Property
+
+            Public Property ram As String
+                Get
+                    Return _ram
+                End Get
+                Set(value As String)
+                    _ram = value
                 End Set
             End Property
         End Class

@@ -24,17 +24,17 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ColumnHeader1 As System.Windows.Forms.ColumnHeader
-        Dim ListViewGroup11 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Infrastructure", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup12 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Network", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup13 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Security", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup14 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Management", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup15 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Other", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewItem13 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Servers")
-        Dim ListViewItem14 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Images")
-        Dim ListViewItem15 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Shared Storage")
-        Dim ListViewItem16 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Firewall Policies")
-        Dim ListViewItem17 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Load Balancers")
-        Dim ListViewItem18 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Public IP")
+        Dim ListViewGroup16 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Infrastructure", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup17 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Network", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup18 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Security", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup19 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Management", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup20 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("Other", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewItem19 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Servers")
+        Dim ListViewItem20 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Images")
+        Dim ListViewItem21 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Shared Storage")
+        Dim ListViewItem22 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Firewall Policies")
+        Dim ListViewItem23 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Load Balancers")
+        Dim ListViewItem24 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Public IP")
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.serverPanel = New System.Windows.Forms.Panel()
@@ -46,17 +46,13 @@ Partial Class Form1
         Me.colOS = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.specsPanels = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.harddrivelabel = New System.Windows.Forms.Label()
         Me.harddriveList = New System.Windows.Forms.ListBox()
-        Me.serverIP = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.serverStatus = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.serverDesc = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.serverNameLabel = New System.Windows.Forms.Label()
-        Me.label1 = New System.Windows.Forms.Label()
         Me.serverLabel = New System.Windows.Forms.Label()
         Me.imagesPanel = New System.Windows.Forms.Panel()
         Me.imagesLabel = New System.Windows.Forms.Label()
@@ -74,6 +70,8 @@ Partial Class Form1
         Me.ActionsMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.StartToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StopToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HardwareToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SoftwareToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RestartToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CloneToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImagesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -82,8 +80,12 @@ Partial Class Form1
         Me.SnapshotsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CreateSnapshotToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteSnapshotToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HardwareToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SoftwareToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.serverRam = New System.Windows.Forms.Label()
+        Me.serverCores = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.serverIPs = New System.Windows.Forms.ListBox()
         ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -118,49 +120,50 @@ Partial Class Form1
         '
         'SplitContainer1.Panel2
         '
-        Me.SplitContainer1.Panel2.Controls.Add(Me.serverPanel)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.imagesPanel)
         Me.SplitContainer1.Panel2.Controls.Add(Me.SharedStoragePanel)
         Me.SplitContainer1.Panel2.Controls.Add(Me.FirewallPanel)
         Me.SplitContainer1.Panel2.Controls.Add(Me.LoadBalancerPanel)
         Me.SplitContainer1.Panel2.Controls.Add(Me.PublicIPPanel)
-        Me.SplitContainer1.Size = New System.Drawing.Size(868, 828)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.serverPanel)
+        Me.SplitContainer1.Size = New System.Drawing.Size(868, 713)
         Me.SplitContainer1.SplitterDistance = 146
         Me.SplitContainer1.TabIndex = 1
         '
         'ListView1
         '
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {ColumnHeader1})
-        ListViewGroup11.Header = "Infrastructure"
-        ListViewGroup11.Name = "InfrastructureGrp"
-        ListViewGroup12.Header = "Network"
-        ListViewGroup12.Name = "NetworkGrp"
-        ListViewGroup13.Header = "Security"
-        ListViewGroup13.Name = "SecurityGrp"
-        ListViewGroup14.Header = "Management"
-        ListViewGroup14.Name = "ManagementGrp"
-        ListViewGroup15.Header = "Other"
-        ListViewGroup15.Name = "OtherGrp"
-        Me.ListView1.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup11, ListViewGroup12, ListViewGroup13, ListViewGroup14, ListViewGroup15})
+        Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
+        ListViewGroup16.Header = "Infrastructure"
+        ListViewGroup16.Name = "InfrastructureGrp"
+        ListViewGroup17.Header = "Network"
+        ListViewGroup17.Name = "NetworkGrp"
+        ListViewGroup18.Header = "Security"
+        ListViewGroup18.Name = "SecurityGrp"
+        ListViewGroup19.Header = "Management"
+        ListViewGroup19.Name = "ManagementGrp"
+        ListViewGroup20.Header = "Other"
+        ListViewGroup20.Name = "OtherGrp"
+        Me.ListView1.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup16, ListViewGroup17, ListViewGroup18, ListViewGroup19, ListViewGroup20})
         Me.ListView1.HideSelection = False
         Me.ListView1.ImeMode = System.Windows.Forms.ImeMode.KatakanaHalf
-        ListViewItem13.Group = ListViewGroup11
-        ListViewItem14.Group = ListViewGroup11
-        ListViewItem15.Group = ListViewGroup11
-        ListViewItem16.Group = ListViewGroup12
-        ListViewItem17.Group = ListViewGroup12
-        ListViewItem18.Group = ListViewGroup12
-        Me.ListView1.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem13, ListViewItem14, ListViewItem15, ListViewItem16, ListViewItem17, ListViewItem18})
+        ListViewItem19.Group = ListViewGroup16
+        ListViewItem20.Group = ListViewGroup16
+        ListViewItem21.Group = ListViewGroup16
+        ListViewItem22.Group = ListViewGroup17
+        ListViewItem23.Group = ListViewGroup17
+        ListViewItem24.Group = ListViewGroup17
+        Me.ListView1.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem19, ListViewItem20, ListViewItem21, ListViewItem22, ListViewItem23, ListViewItem24})
         Me.ListView1.Location = New System.Drawing.Point(0, 0)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(168, 601)
+        Me.ListView1.Size = New System.Drawing.Size(146, 713)
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
         '
         'serverPanel
         '
+        Me.serverPanel.Controls.Add(Me.imagesPanel)
         Me.serverPanel.Controls.Add(Me.Button5)
         Me.serverPanel.Controls.Add(Me.Button4)
         Me.serverPanel.Controls.Add(Me.DataGridView1)
@@ -169,7 +172,7 @@ Partial Class Form1
         Me.serverPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.serverPanel.Location = New System.Drawing.Point(0, 0)
         Me.serverPanel.Name = "serverPanel"
-        Me.serverPanel.Size = New System.Drawing.Size(718, 828)
+        Me.serverPanel.Size = New System.Drawing.Size(718, 713)
         Me.serverPanel.TabIndex = 0
         '
         'Button5
@@ -177,13 +180,14 @@ Partial Class Form1
         Me.Button5.Enabled = False
         Me.Button5.Location = New System.Drawing.Point(117, 75)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(92, 39)
+        Me.Button5.Size = New System.Drawing.Size(92, 37)
         Me.Button5.TabIndex = 16
         Me.Button5.Text = "Actions"
         Me.Button5.UseVisualStyleBackColor = True
         '
         'Button4
         '
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button4.Location = New System.Drawing.Point(19, 75)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(92, 37)
@@ -193,10 +197,13 @@ Partial Class Form1
         '
         'DataGridView1
         '
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colName, Me.colIP, Me.colOS, Me.colStatus})
         Me.DataGridView1.Location = New System.Drawing.Point(19, 131)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.Size = New System.Drawing.Size(674, 224)
         Me.DataGridView1.TabIndex = 13
@@ -227,36 +234,29 @@ Partial Class Form1
         Me.specsPanels.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.specsPanels.Controls.Add(Me.Button1)
+        Me.specsPanels.Controls.Add(Me.serverIPs)
+        Me.specsPanels.Controls.Add(Me.serverCores)
+        Me.specsPanels.Controls.Add(Me.Label4)
+        Me.specsPanels.Controls.Add(Me.serverRam)
+        Me.specsPanels.Controls.Add(Me.Label2)
+        Me.specsPanels.Controls.Add(Me.Label1)
         Me.specsPanels.Controls.Add(Me.harddrivelabel)
         Me.specsPanels.Controls.Add(Me.harddriveList)
-        Me.specsPanels.Controls.Add(Me.serverIP)
         Me.specsPanels.Controls.Add(Me.Label7)
         Me.specsPanels.Controls.Add(Me.serverStatus)
         Me.specsPanels.Controls.Add(Me.Label5)
         Me.specsPanels.Controls.Add(Me.serverDesc)
-        Me.specsPanels.Controls.Add(Me.Label3)
         Me.specsPanels.Controls.Add(Me.serverNameLabel)
-        Me.specsPanels.Controls.Add(Me.label1)
         Me.specsPanels.Location = New System.Drawing.Point(19, 370)
         Me.specsPanels.Name = "specsPanels"
-        Me.specsPanels.Size = New System.Drawing.Size(675, 446)
+        Me.specsPanels.Size = New System.Drawing.Size(675, 318)
         Me.specsPanels.TabIndex = 12
         Me.specsPanels.Visible = False
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(6, 210)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(136, 29)
-        Me.Button1.TabIndex = 22
-        Me.Button1.Text = "Create an Image"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'harddrivelabel
         '
         Me.harddrivelabel.AutoSize = True
-        Me.harddrivelabel.Location = New System.Drawing.Point(275, 34)
+        Me.harddrivelabel.Location = New System.Drawing.Point(234, 205)
         Me.harddrivelabel.Name = "harddrivelabel"
         Me.harddrivelabel.Size = New System.Drawing.Size(81, 17)
         Me.harddrivelabel.TabIndex = 21
@@ -268,24 +268,15 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.harddriveList.FormattingEnabled = True
         Me.harddriveList.ItemHeight = 16
-        Me.harddriveList.Location = New System.Drawing.Point(278, 54)
+        Me.harddriveList.Location = New System.Drawing.Point(317, 205)
         Me.harddriveList.Name = "harddriveList"
-        Me.harddriveList.Size = New System.Drawing.Size(384, 68)
+        Me.harddriveList.Size = New System.Drawing.Size(89, 68)
         Me.harddriveList.TabIndex = 20
-        '
-        'serverIP
-        '
-        Me.serverIP.AutoSize = True
-        Me.serverIP.Location = New System.Drawing.Point(87, 88)
-        Me.serverIP.Name = "serverIP"
-        Me.serverIP.Size = New System.Drawing.Size(82, 17)
-        Me.serverIP.TabIndex = 19
-        Me.serverIP.Text = "{IPAddress}"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(3, 88)
+        Me.Label7.Location = New System.Drawing.Point(24, 176)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(80, 17)
         Me.Label7.TabIndex = 18
@@ -294,7 +285,7 @@ Partial Class Form1
         'serverStatus
         '
         Me.serverStatus.AutoSize = True
-        Me.serverStatus.Location = New System.Drawing.Point(87, 71)
+        Me.serverStatus.Location = New System.Drawing.Point(103, 150)
         Me.serverStatus.Name = "serverStatus"
         Me.serverStatus.Size = New System.Drawing.Size(58, 17)
         Me.serverStatus.TabIndex = 17
@@ -303,7 +294,7 @@ Partial Class Form1
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(3, 71)
+        Me.Label5.Location = New System.Drawing.Point(24, 150)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(52, 17)
         Me.Label5.TabIndex = 16
@@ -312,38 +303,21 @@ Partial Class Form1
         'serverDesc
         '
         Me.serverDesc.AutoSize = True
-        Me.serverDesc.Location = New System.Drawing.Point(87, 54)
+        Me.serverDesc.Location = New System.Drawing.Point(23, 68)
         Me.serverDesc.Name = "serverDesc"
         Me.serverDesc.Size = New System.Drawing.Size(89, 17)
         Me.serverDesc.TabIndex = 15
         Me.serverDesc.Text = "{Description}"
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(3, 54)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(83, 17)
-        Me.Label3.TabIndex = 14
-        Me.Label3.Text = "Description:"
-        '
         'serverNameLabel
         '
         Me.serverNameLabel.AutoSize = True
-        Me.serverNameLabel.Location = New System.Drawing.Point(87, 37)
+        Me.serverNameLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.serverNameLabel.Location = New System.Drawing.Point(21, 27)
         Me.serverNameLabel.Name = "serverNameLabel"
-        Me.serverNameLabel.Size = New System.Drawing.Size(55, 17)
+        Me.serverNameLabel.Size = New System.Drawing.Size(96, 29)
         Me.serverNameLabel.TabIndex = 13
         Me.serverNameLabel.Text = "{Name}"
-        '
-        'label1
-        '
-        Me.label1.AutoSize = True
-        Me.label1.Location = New System.Drawing.Point(3, 37)
-        Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(49, 17)
-        Me.label1.TabIndex = 12
-        Me.label1.Text = "Name:"
         '
         'serverLabel
         '
@@ -358,7 +332,7 @@ Partial Class Form1
         'imagesPanel
         '
         Me.imagesPanel.Controls.Add(Me.imagesLabel)
-        Me.imagesPanel.Location = New System.Drawing.Point(133, 128)
+        Me.imagesPanel.Location = New System.Drawing.Point(3, 3)
         Me.imagesPanel.Name = "imagesPanel"
         Me.imagesPanel.Size = New System.Drawing.Size(383, 409)
         Me.imagesPanel.TabIndex = 5
@@ -449,7 +423,7 @@ Partial Class Form1
         '
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.currentstatus})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 806)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 691)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(868, 22)
         Me.StatusStrip1.TabIndex = 2
@@ -469,57 +443,69 @@ Partial Class Form1
         Me.ActionsMenuStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ActionsMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StartToolStripMenuItem, Me.StopToolStripMenuItem, Me.RestartToolStripMenuItem, Me.CloneToolStripMenuItem, Me.ImagesToolStripMenuItem, Me.ReimageToolStripMenuItem, Me.SnapshotsToolStripMenuItem})
         Me.ActionsMenuStrip.Name = "ActionsMenuStrip"
-        Me.ActionsMenuStrip.Size = New System.Drawing.Size(182, 214)
+        Me.ActionsMenuStrip.Size = New System.Drawing.Size(152, 186)
         '
         'StartToolStripMenuItem
         '
         Me.StartToolStripMenuItem.Name = "StartToolStripMenuItem"
-        Me.StartToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.StartToolStripMenuItem.Size = New System.Drawing.Size(151, 26)
         Me.StartToolStripMenuItem.Text = "Start"
         '
         'StopToolStripMenuItem
         '
         Me.StopToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HardwareToolStripMenuItem, Me.SoftwareToolStripMenuItem})
         Me.StopToolStripMenuItem.Name = "StopToolStripMenuItem"
-        Me.StopToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.StopToolStripMenuItem.Size = New System.Drawing.Size(151, 26)
         Me.StopToolStripMenuItem.Text = "Stop"
+        '
+        'HardwareToolStripMenuItem
+        '
+        Me.HardwareToolStripMenuItem.Name = "HardwareToolStripMenuItem"
+        Me.HardwareToolStripMenuItem.Size = New System.Drawing.Size(149, 26)
+        Me.HardwareToolStripMenuItem.Text = "Hardware"
+        '
+        'SoftwareToolStripMenuItem
+        '
+        Me.SoftwareToolStripMenuItem.Name = "SoftwareToolStripMenuItem"
+        Me.SoftwareToolStripMenuItem.Size = New System.Drawing.Size(149, 26)
+        Me.SoftwareToolStripMenuItem.Text = "Software"
         '
         'RestartToolStripMenuItem
         '
         Me.RestartToolStripMenuItem.Name = "RestartToolStripMenuItem"
-        Me.RestartToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.RestartToolStripMenuItem.Size = New System.Drawing.Size(151, 26)
         Me.RestartToolStripMenuItem.Text = "Restart"
         '
         'CloneToolStripMenuItem
         '
         Me.CloneToolStripMenuItem.Name = "CloneToolStripMenuItem"
-        Me.CloneToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.CloneToolStripMenuItem.Size = New System.Drawing.Size(151, 26)
         Me.CloneToolStripMenuItem.Text = "Clone"
         '
         'ImagesToolStripMenuItem
         '
         Me.ImagesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CreateImageToolStripMenuItem})
         Me.ImagesToolStripMenuItem.Name = "ImagesToolStripMenuItem"
-        Me.ImagesToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.ImagesToolStripMenuItem.Size = New System.Drawing.Size(151, 26)
         Me.ImagesToolStripMenuItem.Text = "Images"
         '
         'CreateImageToolStripMenuItem
         '
         Me.CreateImageToolStripMenuItem.Name = "CreateImageToolStripMenuItem"
-        Me.CreateImageToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.CreateImageToolStripMenuItem.Size = New System.Drawing.Size(173, 26)
         Me.CreateImageToolStripMenuItem.Text = "Create Image"
         '
         'ReimageToolStripMenuItem
         '
         Me.ReimageToolStripMenuItem.Name = "ReimageToolStripMenuItem"
-        Me.ReimageToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.ReimageToolStripMenuItem.Size = New System.Drawing.Size(151, 26)
         Me.ReimageToolStripMenuItem.Text = "Reimage"
         '
         'SnapshotsToolStripMenuItem
         '
         Me.SnapshotsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CreateSnapshotToolStripMenuItem, Me.DeleteSnapshotToolStripMenuItem})
         Me.SnapshotsToolStripMenuItem.Name = "SnapshotsToolStripMenuItem"
-        Me.SnapshotsToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.SnapshotsToolStripMenuItem.Size = New System.Drawing.Size(151, 26)
         Me.SnapshotsToolStripMenuItem.Text = "Snapshots"
         '
         'CreateSnapshotToolStripMenuItem
@@ -534,23 +520,68 @@ Partial Class Form1
         Me.DeleteSnapshotToolStripMenuItem.Size = New System.Drawing.Size(193, 26)
         Me.DeleteSnapshotToolStripMenuItem.Text = "Delete Snapshot"
         '
-        'HardwareToolStripMenuItem
+        'Label1
         '
-        Me.HardwareToolStripMenuItem.Name = "HardwareToolStripMenuItem"
-        Me.HardwareToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
-        Me.HardwareToolStripMenuItem.Text = "Hardware"
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(23, 118)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(89, 24)
+        Me.Label1.TabIndex = 22
+        Me.Label1.Text = "Features:"
         '
-        'SoftwareToolStripMenuItem
+        'Label2
         '
-        Me.SoftwareToolStripMenuItem.Name = "SoftwareToolStripMenuItem"
-        Me.SoftwareToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
-        Me.SoftwareToolStripMenuItem.Text = "Software"
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(234, 150)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(41, 17)
+        Me.Label2.TabIndex = 23
+        Me.Label2.Text = "Ram:"
+        '
+        'serverRam
+        '
+        Me.serverRam.AutoSize = True
+        Me.serverRam.Location = New System.Drawing.Point(313, 150)
+        Me.serverRam.Name = "serverRam"
+        Me.serverRam.Size = New System.Drawing.Size(47, 17)
+        Me.serverRam.TabIndex = 24
+        Me.serverRam.Text = "{Ram}"
+        '
+        'serverCores
+        '
+        Me.serverCores.AutoSize = True
+        Me.serverCores.Location = New System.Drawing.Point(313, 178)
+        Me.serverCores.Name = "serverCores"
+        Me.serverCores.Size = New System.Drawing.Size(62, 17)
+        Me.serverCores.TabIndex = 26
+        Me.serverCores.Text = "{vCores}"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(234, 178)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(56, 17)
+        Me.Label4.TabIndex = 25
+        Me.Label4.Text = "vCores:"
+        '
+        'serverIPs
+        '
+        Me.serverIPs.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.serverIPs.FormattingEnabled = True
+        Me.serverIPs.ItemHeight = 16
+        Me.serverIPs.Location = New System.Drawing.Point(106, 178)
+        Me.serverIPs.Name = "serverIPs"
+        Me.serverIPs.Size = New System.Drawing.Size(89, 68)
+        Me.serverIPs.TabIndex = 27
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(868, 828)
+        Me.ClientSize = New System.Drawing.Size(868, 713)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "Form1"
@@ -598,15 +629,11 @@ Partial Class Form1
     Friend WithEvents specsPanels As Panel
     Friend WithEvents harddrivelabel As Label
     Friend WithEvents harddriveList As ListBox
-    Friend WithEvents serverIP As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents serverStatus As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents serverDesc As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents serverNameLabel As Label
-    Friend WithEvents label1 As Label
-    Friend WithEvents Button1 As Button
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents currentstatus As ToolStripStatusLabel
     Friend WithEvents statustimer As Timer
@@ -630,4 +657,10 @@ Partial Class Form1
     Friend WithEvents DeleteSnapshotToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HardwareToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SoftwareToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents serverCores As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents serverRam As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents serverIPs As ListBox
 End Class
