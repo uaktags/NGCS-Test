@@ -1,6 +1,6 @@
-### 1&1 CloudServer "NGCS" .Net-Wrapper
+## 1&1 CloudServer "NGCS" .Net-Wrapper
 
-## Synopsis
+#### Synopsis
 
 Wanted to create a .Net wrapper for developers to be able to start throwing into their applications to control their 1&1 Cloud Servers.
 
