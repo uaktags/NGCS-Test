@@ -114,6 +114,14 @@ Namespace NGCS_Wrapper
 
                 End Try
             End Function
+
+            Public Function deleteImage(imgid As String)
+
+            End Function
+
+            Public Function modify(imgid As String, data As Specialized.HybridDictionary)
+
+            End Function
         End Class
     End Namespace
 End Namespace

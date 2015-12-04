@@ -6,7 +6,14 @@
             Sub New(ByVal api As String)
                 MyBase.New(api)
             End Sub
-        End Class
 
+            Function getAll()
+
+            End Function
+
+            Function getByID(log As String)
+
+            End Function
+        End Class
     End Namespace
 End Namespace
