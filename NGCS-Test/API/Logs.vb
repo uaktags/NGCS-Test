@@ -8,11 +8,19 @@
             End Sub
 
             Function getAll()
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function getByID(log As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
         End Class
     End Namespace

@@ -8,10 +8,18 @@ Namespace NGCS_Wrapper
                 MyBase.New(api)
             End Sub
             Function getAll()
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
             Function getByServer(serverID As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
         End Class
     End Namespace

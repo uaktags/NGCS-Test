@@ -9,51 +9,99 @@ Namespace NGCS_Wrapper
             End Sub
 
             Function getAll()
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function create(data As Specialized.HybridDictionary)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function getByID(uid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function delete(uid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function modify(uid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function getAPIInfo(uid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function enableAPI(uid As String, enable As Boolean)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function getAPIKey(uid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function regenerateAPIKey(uid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function getAllowedIPs(uid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function addIP(uid As String, data As Specialized.HybridDictionary)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function removeIP(uid As String, ip As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
         End Class
     End Namespace

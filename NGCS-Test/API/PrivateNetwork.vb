@@ -9,39 +9,75 @@ Namespace NGCS_Wrapper
             End Sub
 
             Function getAll()
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function create(data As Specialized.HybridDictionary)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function getByID(pnid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function delete(pnid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function modify(pnid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function getAssignedServers(pnid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function addServer(pnid As String, serverID As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function getServerInfo(pnid As String, serverID As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function removeServer(pnid As String, serverID As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
         End Class
     End Namespace

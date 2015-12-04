@@ -8,23 +8,43 @@ Namespace NGCS_Wrapper
                 MyBase.New(api)
             End Sub
             Function getAll()
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function create()
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function getByID(ipid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function delete(ipid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             Function modify(ipid As String, data As Specialized.HybridDictionary)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
         End Class
     End Namespace

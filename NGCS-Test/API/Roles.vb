@@ -9,15 +9,27 @@ Namespace NGCS_Wrapper
             End Sub
 
             Sub getAll()
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Sub
 
             Sub getByID(roleID As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Sub
 
             Sub getUsers(roleID As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Sub
 
 

@@ -15,6 +15,11 @@ Namespace NGCS_Wrapper
             ''' <returns></returns>
             Public Function getall()
                 Dim _command As String = "firewall_policies"
+                Try
+
+                Catch ex As Exception
+
+                End Try
             End Function
 
             ''' <summary>
@@ -23,6 +28,11 @@ Namespace NGCS_Wrapper
             ''' </summary>
             ''' <returns></returns>
             Public Function create()
+                Try
+
+                Catch ex As Exception
+
+                End Try
             End Function
 
             ''' <summary>
@@ -32,7 +42,11 @@ Namespace NGCS_Wrapper
             ''' <param name="fwid"></param>
             ''' <returns></returns>
             Public Function getbyID(fwid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             ''' <summary>
@@ -42,7 +56,11 @@ Namespace NGCS_Wrapper
             ''' <param name="fwid"></param>
             ''' <returns></returns>
             Public Function delete(fwid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             ''' <summary>
@@ -53,7 +71,11 @@ Namespace NGCS_Wrapper
             ''' <param name="data"></param>
             ''' <returns></returns>
             Public Function modify(fwid As String, data As Specialized.HybridDictionary)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             ''' <summary>
@@ -63,7 +85,11 @@ Namespace NGCS_Wrapper
             ''' <param name="fwid"></param>
             ''' <returns></returns>
             Public Function getIPs(fwid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             ''' <summary>
@@ -74,7 +100,11 @@ Namespace NGCS_Wrapper
             ''' <param name="ipid"></param>
             ''' <returns></returns>
             Public Function assignIP(fwid As String, ipid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             ''' <summary>
@@ -85,7 +115,11 @@ Namespace NGCS_Wrapper
             ''' <param name="ipid"></param>
             ''' <returns></returns>
             Public Function getAssignedIP(fwid As String, ipid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             ''' <summary>
@@ -96,7 +130,11 @@ Namespace NGCS_Wrapper
             ''' <param name="ipid"></param>
             ''' <returns></returns>
             Public Function removeIP(fwid As String, ipid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             ''' <summary>
@@ -106,7 +144,11 @@ Namespace NGCS_Wrapper
             ''' <param name="fwid"></param>
             ''' <returns></returns>
             Public Function getRules(fwid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             ''' <summary>
@@ -117,7 +159,11 @@ Namespace NGCS_Wrapper
             ''' <param name="data"></param>
             ''' <returns></returns>
             Public Function addRule(fwid As String, data As Specialized.HybridDictionary)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             ''' <summary>
@@ -128,7 +174,11 @@ Namespace NGCS_Wrapper
             ''' <param name="ruleid"></param>
             ''' <returns></returns>
             Public Function getRule(fwid As String, ruleid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
 
             ''' <summary>
@@ -139,7 +189,11 @@ Namespace NGCS_Wrapper
             ''' <param name="ruleid"></param>
             ''' <returns></returns>
             Public Function removeRule(fwid As String, ruleid As String)
+                Try
 
+                Catch ex As Exception
+
+                End Try
             End Function
         End Class
     End Namespace
