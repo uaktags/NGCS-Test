@@ -1,8 +1,10 @@
 ﻿Namespace NGCS_Wrapper
     Namespace Entity
-        Public Class Users
+        Namespace Users
+            Public Class Users
 
-        End Class
+            End Class
 
+        End Namespace
     End Namespace
 End Namespace
