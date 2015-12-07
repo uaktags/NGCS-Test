@@ -11,7 +11,7 @@ Namespace NGCS_Wrapper
             Function getall()
                 Try
                     _command = "shared_storages"
-                    Return New JavaScriptSerializer().Deserialize(Of List(Of NGCS_Wrapper.Entity.sharedstorages))(MyBase._get(_command))
+                    Return New JavaScriptSerializer().Deserialize(Of List(Of NGCS_Wrapper.Entity.SharedStorage))(MyBase._get(_command))
                 Catch ex As Exception
 
                 End Try
@@ -20,7 +20,7 @@ Namespace NGCS_Wrapper
             Function create(data As Specialized.HybridDictionary)
                 Try
                     _command = "shared_storages"
-                    MyBase._post(_command)
+                    MyBase._post(_command, data)
                 Catch ex As Exception
 
                 End Try
@@ -29,7 +29,7 @@ Namespace NGCS_Wrapper
             Function getbyID(ssid As String)
                 Try
                     _command += ssid
-                    Return New JavaScriptSerializer().Deserialize(Of NGCS_Wrapper.Entity.sharedstorages)(MyBase._get(_command))
+                    Return New JavaScriptSerializer().Deserialize(Of NGCS_Wrapper.Entity.SharedStorage)(MyBase._get(_command))
                 Catch ex As Exception
 
                 End Try
@@ -48,7 +48,7 @@ Namespace NGCS_Wrapper
             Function modify(ssid As String, data As Specialized.HybridDictionary)
                 Try
                     _command += ssid
-                   MyBase._put(_command)
+                    MyBase._PUT(_command, data)
                 Catch ex As Exception
 
                 End Try
@@ -57,7 +57,7 @@ Namespace NGCS_Wrapper
             Function getAssignedServer(ssid As String)
                 Try
                     _command += ssid + "/servers"
-                    ' Return New JavaScriptSerializer().Deserialize(Of NGCS_Wrapper.Entity.sharedstorages)(MyBase._get(_command))
+                    Return New JavaScriptSerializer().Deserialize(Of NGCS_Wrapper.Entity.sharedStorageNS.servers)(MyBase._get(_command))
                     '''
                     '{
                     '"id" "C72CF0A681B0CCE7EC624DD194D585C6",
@@ -81,7 +81,7 @@ Namespace NGCS_Wrapper
             Function getServerInfo(ssid As String, serverid As String)
                 Try
                     _command += ssid + "/servers/" + serverid
-                    ' Return New JavaScriptSerializer().Deserialize(Of NGCS_Wrapper.Entity.sharedstorages)(MyBase._get(_command))
+                    Return New JavaScriptSerializer().Deserialize(Of NGCS_Wrapper.Entity.sharedStorageNS.servers)(MyBase._get(_command))
                     '{
                     '  "id" "638ED28205B1AFD7ADEF569C725DD85F",
                     '  "name": "Mi servidor 1",
@@ -103,7 +103,7 @@ Namespace NGCS_Wrapper
             Function getAccessRights(ssid As String)
                 Try
                     _command += ssid + "/access"
-                    ' Return New JavaScriptSerializer().Deserialize(Of NGCS_Wrapper.Entity.sharedstorages)(MyBase._get(_command))
+                    Return New JavaScriptSerializer().Deserialize(Of NGCS_Wrapper.Entity.sharedStorageNS.AccessRights)(MyBase._get(_command))
                     '{
                     '    "state" "CONFIGURING",
                     '    "kerberos_content_file": "BQIAAABSAAIACERFVjEuTEFOAANuZnMAEnVpZDYyNDQ2OC5kZXYxLmxhbgAAAAEAAAAAAwASACDoMmqCQE8L1/Kcur6pzBRM+DDT+lELrKHRIPSM966n5w==",

@@ -43,14 +43,9 @@ Public Class Form1
                 Case "servers"
                     Dim servers = _ngcs.Servers.getServers()
                     Console.WriteLine(servers)
-                    '   serversView.Clear()
                     DataGridView1.Rows.Clear()
 
                     For Each i In servers
-                        '  Dim serv As New ListViewItem
-                        ' serv.Text = i.name
-                        'serv.Tag = i
-                        'serversView.Items.Add(serv)
                         Dim srv As DataGridViewRow = DataGridView1.Rows(0).Clone
                         srv.Cells.Item(0).Value = i.name
                         Dim ipcount, cur As Integer
@@ -69,25 +64,14 @@ Public Class Form1
                         srv.Cells.Item(3).Value = i.status.state
                         srv.Tag = _ngcs.Servers.getServer(i.id)
                         DataGridView1.Rows.Add(srv)
-                        Next
-                        Case 2
+                    Next
+                Case 2
 
                 Case Else
 
             End Select
         End If
     End Function
-
-
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-        '    Dim srv = serversView.SelectedItems.Item(0).Tag
-        ' '   If _ngcs._Image.create(Nothing, srv.id, "FirstImage", "some IMAGE i made", "WEEKLY", 1) = True Then
-        '    changestatus("Image Created")
-        '    Else
-        '    changestatus("Image failed to create")
-        '    End If
-    End Sub
 
     Private Sub statustimer_Tick(sender As Object, e As EventArgs) Handles statustimer.Tick
         currentstatus.Text = ""
