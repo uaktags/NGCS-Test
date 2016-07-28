@@ -65,6 +65,8 @@ TryAgain:
                 ElseIf api = " " Then
                     MsgBox("You must enter an API to continue, otherwise Exit.")
                     GoTo Back
+                Else
+                    GoTo cont
                 End If
 
             End If

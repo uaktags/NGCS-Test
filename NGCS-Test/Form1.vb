@@ -44,30 +44,53 @@ Public Class Form1
                     Dim servers = _ngcs.Servers.getServers()
                     Console.WriteLine(servers)
                     DataGridView1.Rows.Clear()
+                    Parallel.ForEach(servers.cast(Of Object), Function(i As NGCS_Wrapper.Entity.Server)
+                                                     Me.Invoke(Sub()
+                                                                   Dim srv As DataGridViewRow = DataGridView1.Rows(0).Clone
+                                                                   srv.Cells.Item(0).Value = i.name
+                                                                   Dim ipcount, cur As Integer
+                                                                   cur = 0
+                                                                   ipcount = i.ips.Count
+                                                                   For Each ip As NGCS_Wrapper.Entity.serverIP In i.ips
+                                                                       If cur = (ipcount - 1) Then
+                                                                           srv.Cells.Item(1).Value = srv.Cells.Item(1).Value + ip.ip
+                                                                       Else
+                                                                           srv.Cells.Item(1).Value = srv.Cells.Item(1).Value + ip.ip + ", "
+                                                                           cur = cur + 1
+                                                                       End If
+                                                                   Next
 
-                    For Each i In servers
-                        Dim srv As DataGridViewRow = DataGridView1.Rows(0).Clone
-                        srv.Cells.Item(0).Value = i.name
-                        Dim ipcount, cur As Integer
-                        cur = 0
-                        ipcount = i.ips.count
-                        For Each ip As NGCS_Wrapper.Entity.serverIP In i.ips
-                            If cur = (ipcount - 1) Then
-                                srv.Cells.Item(1).Value = srv.Cells.Item(1).Value + ip.ip
-                            Else
-                                srv.Cells.Item(1).Value = srv.Cells.Item(1).Value + ip.ip + ", "
-                                cur = cur + 1
-                            End If
-                        Next
+                                                                   srv.Cells.Item(2).Value = appfunctions.getFriendlyOS(i.image.name)
+                                                                   srv.Cells.Item(3).Value = i.status.state
+                                                                   srv.Tag = _ngcs.Servers.getServer(i.id)
+                                                                   DataGridView1.Rows.Add(srv)
+                                                               End Sub)
+                                                     Return Nothing
+                                                 End Function)
 
-                        srv.Cells.Item(2).Value = appfunctions.getFriendlyOS(i.image.name)
-                        srv.Cells.Item(3).Value = i.status.state
-                        srv.Tag = _ngcs.Servers.getServer(i.id)
-                        DataGridView1.Rows.Add(srv)
-                    Next
+                'For Each i In servers
+                '       Dim srv As DataGridViewRow = DataGridView1.Rows(0).Clone
+                'srv.Cells.Item(0).Value = i.name
+                'Dim ipcount, cur As Integer
+                'cur = 0
+                'ipcount = i.ips.Count
+                'For Each ip As NGCS_Wrapper.Entity.serverIP In i.ips
+                'If cur = (ipcount - 1) Then
+                'srv.Cells.Item(1).Value = srv.Cells.Item(1).Value + ip.ip
+                'Else
+                'srv.Cells.Item(1).Value = srv.Cells.Item(1).Value + ip.ip + ", "
+                'cur = cur + 1
+                'End If
+                '           Next
+                '
+                'srv.Cells.Item(2).Value = appfunctions.getFriendlyOS(i.image.name)
+                'srv.Cells.Item(3).Value = i.status.state
+                'srv.Tag = _ngcs.Servers.getServer(i.id)
+                'DataGridView1.Rows.Add(srv)
+                'Next
                 Case 2
 
-                Case Else
+                                                  Case Else
 
             End Select
         End If
